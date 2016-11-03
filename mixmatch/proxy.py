@@ -77,7 +77,8 @@ class RequestHandler:
             # if request is to /volumes, change it
             # to /volumes/detail for aggregation
             if self.method == 'GET' \
-                    and self.action[-1] == 'volumes':
+                    and self.action[-1] == 'volumes' \
+                    and not self.version == 'v1':
                 self.detailed = False
                 self.action.insert(len(self.action), 'detail')
         else:
